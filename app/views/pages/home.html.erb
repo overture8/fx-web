@@ -1,0 +1,53 @@
+<div class="ui segment">
+  <%= form_tag('/pages/convert', method: :post, class: 'ui form') do %>
+    <h4 class="ui dividing header">FX-u-like</h4>
+    <div class="two fields">
+      <div class="field">
+        <div class="two fields">
+          <div class="field">
+            <label>Date</label>
+            <input type="text" name="date" placeholder="YYYY-MM-DD">
+          </div>
+          <div class="field">
+            <label>Amount</label>
+            <input type="text" name="amount" placeholder="100.00">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="two fields">
+          <div class="field">
+            <label>From:</label>
+            <select name="currency-from" class="ui currency-from dropdown">
+              <% @currency_codes.each do |code| %>
+                <option value="<%= code %>"><%= code %></option>
+              <% end %>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>To:</label>
+            <select name="currency-to" class="ui currency-to dropdown">
+              <% @currency_codes.each do |code| %>
+                <option value="<%= code %>"><%= code %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type='submit' value='Convert' class="ui button">
+    <% if @from_text && @to_text %>
+      <div class="ui icon message">
+        <i class="close icon"></i>
+        <i class="random icon"></i>
+        <div class="content">
+          <p><%= @from_text %></p>
+          <div class="header">
+            = <%= @to_text %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
