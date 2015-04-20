@@ -1,4 +1,16 @@
 <div class="ui segment">
+  <% if params[:notice] %>
+    <div class="ui icon negative message">
+      <i class="close icon"></i>
+      <i class="warning icon"></i>
+      <div class="content">
+        <div class="header">
+          <%= params[:notice] %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
   <%= form_tag('/pages/convert', method: :post, class: 'ui form') do %>
     <h4 class="ui dividing header">FX-u-like</h4>
     <div class="two fields">

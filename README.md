@@ -9,5 +9,6 @@ After cloning:
 
     cd fx-web
     bundle
+    rake consume_api # This is used to cache the api (used file system as default - see config/initializers/fx_rates.rb)
     rails s
     open http://localhost:3000
